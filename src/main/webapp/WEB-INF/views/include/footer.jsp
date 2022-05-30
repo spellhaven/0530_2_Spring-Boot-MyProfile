@@ -14,10 +14,10 @@
 		</tr>
 			
 		<tr>
-			<td bgcolor = "#000000" class = "menu02">Copyright ⓒBruh. All Rights Reserved</td>
+			<td bgcolor = "#000000" class = "menu02"> Made with ❤️ by Jisu </td>
 		</tr>
 		<tr>
-			<td bgcolor = "#000000" class = "menu02">This homepage is built with Spring Framework. Made with ❤️ by Jisu. E-Mail:<a href="mailto:j_jisu@pm.me">j_jisu@pm.me</a></td>
+			<td bgcolor = "#000000" class = "menu02">This homepage is built with Spring Framework. Mail: <a href="mailto:j_jisu@pm.me">j_jisu@pm.me</a></td>
 		</tr>
 	
 	</table>
