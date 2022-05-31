@@ -122,10 +122,36 @@ public class WebController {
 			model.addAttribute("mname", memberDto.getMname());
 		}
 		
-		
-		
 		return "loginOk";
 	}
+	
+	
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate(); // 세션 내용 삭제
+		
+		return "login"; // 로그아웃을 하면 로그인 페이지로 가게 해 놓았다.
+	}
+	
+	
+	@RequestMapping(value = "/infoModify")
+	public String infoModify(HttpServletRequest request, Model model) { // 웅성웅성 왜 request가 있어야 하는데? 여기서 피지 뽑듯이 세션 뽑아와야 해서...
+		
+		HttpSession session = request.getSession();
+		
+		String sessionId = (String) session.getAttribute("id"); // 형변환을 이렇게 할 때가 대부분인데 어떨 때는 엄청 긴 구문(무슨 parseInt 들어가는...)으로 했었다. 뭔 차이일까?
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		MemberDto memberDto = dao.loginInfoDao(sessionId); // 회원정보수정을 하려면 회원정보를 모두 가져와야 하는데, 우리가 옛날에 loginInfoDao를 만들어 놓은 게 있었다. (옛날에는 뭐에 필요해서 만들었더라?)
+		
+		model.addAttribute("memberDto", memberDto);
+		
+		return "infoModify"; 
+	}
+	
+	
 	
 }
 

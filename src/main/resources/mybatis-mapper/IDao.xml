@@ -27,7 +27,10 @@
 	<select id = "loginInfoDao" resultType = "com.spellhaven.profileHome.dto.MemberDto">
 		SELECT * FROM q_member WHERE mid = #{param1}
 	</select>
-
+	
+	<update id = "infoModify">
+		UPDATE q_member SET mpw = #{param1}, mname = #{param2}, memail = #{param3} WHERE mid = #{param4}
+	</update>
 
 	<!-- board SQL -->
 
