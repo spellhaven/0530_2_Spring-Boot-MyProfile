@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+<!-- IDao라는 인터페이스를 만들어 놨는데, 이놈 위치를 정확히 써 주면 돼 크킄 -->	
+<mapper namespace = "com.spellhaven.profileHome.dao.IDao"> 
+
+<!-- 이제 이 안에 SQL문을 써 주면 돼 크킄 -->
+
+</mapper>
