@@ -93,7 +93,12 @@ public class WebController {
 		
 		return "joinOk";
 	}
-	
+		
+	@RequestMapping(value = "/loginOk")
+	public String loginOk() {
+		
+		return "loginOk";
+	}
 	
 }
 
