@@ -68,8 +68,10 @@
 							</tr>
 							<tr>
 								<td colspan = "2">
-									<input class = "button01" type = "button" value = "헤언가입" onclick = "location.href=''"> &nbsp;&nbsp;&nbsp;
+									<!-- <input class = "button01" type = "button" value = "헤언가입" onclick = "location.href=''"> &nbsp;&nbsp;&nbsp;  -->
 									<!-- 여기서는 앞 버튼도 submit 아니고 button으로 바꿨다. 그래야 validation 심을 수 있으니까. -->
+									
+									<input class = "button01" type = "submit" value = "헤언가입"> &nbsp;&nbsp;&nbsp;
 									<input class = "button01" type = "button" value = "로그인화면으로" onclick = "location.href='login'">
 								</td>
 								

@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- MyBatis를 이용한 DB연결! -->
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 	
-<!-- IDao라는 인터페이스를 만들어 놨는데, 이놈 위치를 정확히 써 주면 돼 크킄 -->	
+<!-- 만들어 놨던 IDao 인터페이스 위치를 정확히 써 주면 돼 크킄 -->	
 <mapper namespace = "com.spellhaven.profileHome.dao.IDao"> 
 
-<!-- 이제 이 안에 SQL문을 써 주면 돼 크킄 -->
+	<!-- 이 안에 쓰는 SQL문은 ;로 끝내지 않는다. -->
+
+	<!-- member SQL -->
+	<insert id="joinDao">
+		INSERT INTO q_member (mid, mpw, mname, memail) VALUES (#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+
+	<select id = "checkIdDao" resultType = "int">
+		SELECT COUNT(*) FROM q_member WHERE mid = #{param1}
+	</select>
+
+
+	<!-- board SQL -->
 
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
