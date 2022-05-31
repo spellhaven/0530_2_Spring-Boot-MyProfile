@@ -28,6 +28,7 @@
 					<td bgcolor = "#d5d5d5" align = "center" height = "500">
 					
 						<table border = "0" cellspacing = "0" cellpadding = "10"> <!-- 이 아이디/비번 입력창을 table 안에 집어넣어야 했다. 안 그러면 빠져나오더라 -->
+						
 						<form action = "joinOk" method = "post" name = "reg_frm"> <!-- 폼에 이름이 있어야 자바스크립트로 validation 가능. -->
 							<tr>
 								<td>
@@ -50,7 +51,7 @@
 									<span class = "text01">PW CHECK :</span>
 								</td>
 								<td>
-									<input class = "type01" type = "password" name = "pw_check">
+									<input class = "type01" type = "password" name = "mpw_check">
 								</td>
 							</tr>
 							<tr>
@@ -71,9 +72,8 @@
 							</tr>
 							<tr>
 								<td colspan = "2">
-									<input class = "button01" type = "button" value = "헤언가입" onclick = "joinCheck()"> &nbsp;&nbsp;&nbsp;
-									<!-- 여기서는 앞 버튼도 submit 아니고 button으로 바꿨다. 그래야 validation 심을 수 있으니까. -->
-									
+									<input class="button01" type="button" value="회원가입" onclick="joinCheck()">&nbsp;&nbsp;
+									<!-- 여기서는 앞 버튼 submit 아니고 button으로 바꿨다. 그래야 validation 심을 수 있으니까. -->
 									<input class = "button01" type = "button" value = "로그인화면으로" onclick = "location.href='login'">
 								</td>
 								

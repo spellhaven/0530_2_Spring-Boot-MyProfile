@@ -31,7 +31,7 @@
 									<span class = "text01">MEMBER ID :</span>
 								</td>
 								<td>
-									<input class = "type01" type = "text" name = "id">
+									<input class = "type01" type = "text" name = "mid">
 								</td>
 							</tr>
 							<tr>
@@ -39,7 +39,7 @@
 									<span class = "text01">PASSWORD :</span>
 								</td>
 								<td>
-									<input class = "type01" type = "password" name = "pw">
+									<input class = "type01" type = "password" name = "mpw">
 								</td>
 							</tr>
 							<tr>

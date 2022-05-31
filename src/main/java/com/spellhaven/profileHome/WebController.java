@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spellhaven.profileHome.dao.IDao;
+import com.spellhaven.profileHome.dto.MemberDto;
 
 @Controller
 public class WebController {
@@ -62,7 +63,7 @@ public class WebController {
 	}
 	
 	// 회원가입 폼 정보를 post 형식으로 보냈다고 명시해 줘야 한다. 킹받네.
-	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
+	@RequestMapping(value = "/joinOk", method=RequestMethod.POST)
 	public String joinOk(HttpServletRequest request, Model model) {
 		
 		String mid = request.getParameter("mid");
@@ -72,21 +73,18 @@ public class WebController {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		int checkId = dao.checkIdDao(mid);
+		int checkId = dao.checkIdDao(mid);//아이디 존재 여부 체크->존재하면 1이 반환
 		
-		if (checkId != 1) { // 아이디 중복체크를 통과했으면 회원가입을 해라.
-
+		if (checkId != 1) {
+		
 			dao.joinDao(mid, mpw, mname, memail);
-		
-			// 회원가입 후 바로 로그인되게 하려면? 세션에다 올리면 된다 ㅋ.
+			
 			HttpSession session = request.getSession();
+			
 			session.setAttribute("id", mid);
 			
-			// 이 2줄은 그냥 '정지수님 회원가입 축하합니다' 이 화면 띄워 주려고 있는 거다.
-			// Model(and view)에 attribute들을 실어보내!!
 			model.addAttribute("mname", mname);
 			model.addAttribute("mid", mid);
-			
 		}
 		
 		model.addAttribute("checkId", checkId);
@@ -94,8 +92,37 @@ public class WebController {
 		return "joinOk";
 	}
 		
+	
 	@RequestMapping(value = "/loginOk")
-	public String loginOk() {
+	public String loginOk(HttpServletRequest request, Model model) {
+		
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		int checkId = dao.checkIdDao(mid); // 아이디 존재 여부 체크 -> 존재하면 1 반환
+		int checkPw = dao.checkPwDao(mid, mpw); // 아이디와 비밀번호 일치 여부 체크 -> 일치하면 1 반환
+		
+		model.addAttribute("checkId", checkId);
+		model.addAttribute("checkPw", checkPw);
+		
+		if (checkPw == 1) { // 만약 아이디와 비번이 잘 맞으면, ㅋ?
+			
+			MemberDto memberDto = dao.loginInfoDao(mid);
+			
+			HttpSession session = request.getSession();
+			
+			// 왜 세션에도 이걸 올려야 하나요? 이래야 나중에 이 사람이 질문게시판에 글 쓸 때 작성자 아이디 이름 쓰기 편하지.
+			session.setAttribute("id", memberDto.getMid());
+			session.setAttribute("name", memberDto.getMname());
+			
+			// 클라이언트가 샤이니 - View를 할 수 있게 모델에 실어 줘.
+			model.addAttribute("mid", memberDto.getMid());
+			model.addAttribute("mname", memberDto.getMname());
+		}
+		
+		
 		
 		return "loginOk";
 	}
