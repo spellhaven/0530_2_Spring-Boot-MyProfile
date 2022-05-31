@@ -16,7 +16,7 @@
 			<td width = "6%" class = "menu01"><a href = "login">LOGIN</a></td>
 			<td width = "6%" class = "menu01"><a href = "join">JOIN</a></td>
 			<td width = "8%" class = "menu01"><a href = "profile">PROFILE</a></td>
-			<td width = "8%" class = "menu01"><a href = "">QUESTION</a></td>
+			<td width = "8%" class = "menu01"><a href = "question">QUESTION</a></td>
 			<td width = "8%" class = "menu01"><a href = "contact">CONTACT</a></td>
 		</tr>
 		<tr height = "50">

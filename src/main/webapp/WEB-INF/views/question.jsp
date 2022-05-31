@@ -7,7 +7,7 @@
 <link rel = "stylesheet" href = "${pageContext.request.contextPath }/resources/css/title.css">
 <link rel = "stylesheet" href = "${pageContext.request.contextPath }/resources/css/content.css">
 <link rel = "stylesheet" href = "${pageContext.request.contextPath }/resources/css/member.css">
-<title>깜찍한 웹 헤언가입🙂</title>
+<title>깜찍한 웹 질문게시판🙂</title>
 </head>
 <body>
 	<%@ include file="include/header.jsp" %>
@@ -24,38 +24,33 @@
 				<tr height = "500">
 					<td bgcolor = "#d5d5d5" align = "center" height = "500">
 					
-						<table border = "0" cellspacing = "0" cellpadding = "10"> <!-- 이 아이디/비번 입력창을 table 안에 집어넣어야 했다. 안 그러면 빠져나오더라 -->
-						<form action = "joinOk" method = "post" name = "reg_frm"> <!-- 폼에 이름이 있어야 자바스크립트로 validation 가능. -->
+						<table border = "0" cellspacing = "0" cellpadding = "10"> 
+						<form action = "write" method = "post" name = "question_form">
 							<tr>
 								<td>
-									<span class = "text01">MEMBER ID :</span>
+									<span class = "text01">ID :</span>
 								</td>
 								<td>
-									<input class = "type01" type = "text" name = "id">
+									<input class = "type01" type = "text" name = "qid">
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<span class = "text01">PASSWORD :</span>
-								</td>
-								<td>
-									<input class = "type01" type = "password" name = "pw">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span class = "text01">PW CHECK :</span>
-								</td>
-								<td>
-									<input class = "type01" type = "password" name = "pw_check">
-								</td>
 							</tr>
 							<tr>
 								<td>
 									<span class = "text01">NAME :</span>
 								</td>
 								<td>
-									<input class = "type01" type = "text" name = "name">
+									<input class = "type01" type = "text" name = "qname">
+								</td>
+							</tr>
+							<tr>
+							<tr>
+								<td>
+									<span class = "text01">QUESTION :</span>
+								</td>
+								<td>
+									<!-- textarea에 input class가 먹을까? 일단 함 해 보자, ㅋ. -->
+									<textarea id = "textarea01" rows = "5" cols = "25" name = "qcontent"></textarea>
 								</td>
 							</tr>
 							<tr>
@@ -68,9 +63,8 @@
 							</tr>
 							<tr>
 								<td colspan = "2">
-									<input class = "button01" type = "button" value = "헤언가입" onclick = "location.href=''"> &nbsp;&nbsp;&nbsp;
-									<!-- 여기서는 앞 버튼도 submit 아니고 button으로 바꿨다. 그래야 validation 심을 수 있으니까. -->
-									<input class = "button01" type = "button" value = "로그인화면으로" onclick = "location.href='login'">
+									<input class = "button01" type = "button" value = "질문쓰기" onclick = "location.href=''"> &nbsp;&nbsp;&nbsp;
+									<input class = "button01" type = "button" value = "질문목록" onclick = "location.href='list'">
 								</td>
 								
 							</tr>

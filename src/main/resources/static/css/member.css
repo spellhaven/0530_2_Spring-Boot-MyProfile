@@ -18,10 +18,10 @@ span.text01 {
 input.type01 {
 	
 	border: 1px solid RoyalBlue;
-	background-color : Crimson;
+	background-color : LightPink;
 	width: 220px;
 	padding: 5px;
-	font-family: fantasy;
+	font-family: 휴먼아미체;
 	font-size: 12px;
 	
 }
@@ -38,6 +38,17 @@ input.button01 {
 	font-weight: bold;
 	color: Fuchsia;
 	font-family: 맑은 고딕;
+	
+}
+
+#textarea01 {
+	
+	border: 1px solid RoyalBlue;
+	background-color : LightPink;
+	width: 220px;
+	padding: 5px;
+	font-family: 휴먼아미체;
+	font-size: 12px;
 	
 }
 
